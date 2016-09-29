@@ -5,6 +5,8 @@
  */
 package examenlogin;
 
+import vista.Vista;
+
 /**
  *
  * @author Nicolas
@@ -16,6 +18,8 @@ public class Examenlogin {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Vista v = new Vista();
+        
     }
     
 }
