@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.JOptionPane;
+import modelo.Login;
 import modelo.Persona;
 
 /**
@@ -13,12 +14,12 @@ import modelo.Persona;
  * @author Nicolas
  */
 public class VistaRegistroLogin extends javax.swing.JFrame {
-    private Persona elUsuario;
+    private Login elLogin;
     /**
      * Creates new form VistaRegistroLogin
      */
     public VistaRegistroLogin() {
-        elUsuario= new Persona();
+        elLogin= new Login();
         initComponents();
     }
 
@@ -185,13 +186,13 @@ public class VistaRegistroLogin extends javax.swing.JFrame {
             
 
             Persona p = new Persona(usuario, password);
-            boolean fueAgregado= elUsuario.guardarLogin(med);
+            boolean fueAgregado= elLogin.guardarLogin(p);
 
             if (fueAgregado == true) {
-                JOptionPane.showMessageDialog(null, "El empleado ha sido guardado");
+                JOptionPane.showMessageDialog(null, "El login ha sido guardado");
                
             } else {
-                JOptionPane.showMessageDialog(null, "El empleado que intenta agregar ya existe");
+                JOptionPane.showMessageDialog(null, "El login que intenta agregar ya existe");
             }
         }
     }//GEN-LAST:event_jBGuardarEmpActionPerformed
