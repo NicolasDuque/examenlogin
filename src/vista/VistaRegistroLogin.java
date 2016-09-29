@@ -14,12 +14,14 @@ import modelo.Persona;
  * @author Nicolas
  */
 public class VistaRegistroLogin extends javax.swing.JFrame {
+
     private Login elLogin;
+
     /**
      * Creates new form VistaRegistroLogin
      */
     public VistaRegistroLogin() {
-        elLogin= new Login();
+        elLogin = new Login();
         initComponents();
     }
 
@@ -104,24 +106,23 @@ public class VistaRegistroLogin extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jPOpciones2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLNombreEmp)
-                            .addComponent(jLCedula))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(254, 254, 254))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jPOpciones2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))))
+                    .addComponent(jLNombreEmp)
+                    .addComponent(jLCedula))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(49, 49, 49)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCedula)
                     .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,7 +130,7 @@ public class VistaRegistroLogin extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNombreEmp)
                     .addComponent(jTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(137, 137, 137)
+                .addGap(99, 99, 99)
                 .addComponent(jPOpciones2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -163,7 +164,7 @@ public class VistaRegistroLogin extends javax.swing.JFrame {
 
     private void jTFPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPasswordKeyTyped
         // TODO add your handling code here:
-   
+
     }//GEN-LAST:event_jTFPasswordKeyTyped
 
     private void jTFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFUsuarioActionPerformed
@@ -173,7 +174,7 @@ public class VistaRegistroLogin extends javax.swing.JFrame {
 
     private void jTFUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFUsuarioKeyTyped
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_jTFUsuarioKeyTyped
 
     private void jBGuardarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarEmpActionPerformed
@@ -183,14 +184,17 @@ public class VistaRegistroLogin extends javax.swing.JFrame {
         } else {
             String usuario = jTFUsuario.getText();
             String password = jTFPassword.getText();
-            
 
             Persona p = new Persona(usuario, password);
-            boolean fueAgregado= elLogin.guardarLogin(p);
+            boolean fueAgregado = elLogin.guardarLogin(p);
 
             if (fueAgregado == true) {
                 JOptionPane.showMessageDialog(null, "El login ha sido guardado");
-               
+                System.out.println("" + fueAgregado);
+                Vista v = new Vista();
+
+                v.setVisible(true);
+
             } else {
                 JOptionPane.showMessageDialog(null, "El login que intenta agregar ya existe");
             }
